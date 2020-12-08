@@ -1,0 +1,31 @@
+Módosítások:
+
+1,Adjunk a nyersanyag_készlet táblához egy oszlopot:
+
+ALTER TABLE nyersanyag_készlet ADD (Van INT(10));
+
+2,Növeljük meg a darabszámot 20%-kal,az egyik cikkszámnál:
+
+UPDATE nyersanyag SET darabszám=darabszám*1.1 WHERE cikkszám= '1.609.002.1SA';
+
+3,Nevezzük át a beszállító nevét:
+
+UPDATE belföldi_szállítók SET Név='Kossuth KFT' WHERE Név= 'Arany KFT';
+
+4,Megváltozott az egyik szállítási ID átfutási idejére vonatkozó rész:
+
+UPDATE szállításihatáridõk SET Átfutási_idõ = 'NINCS' WHERE SzállításiID=450;
+UPDATE szállításihatáridõk SET Átfutási_idõ = 'NINCS' WHERE SzállításiID=454;
+UPDATE szállításihatáridõk SET Átfutási_idõ = 'NINCS' WHERE SzállításiID=456;
+
+5,Az egyik szállításiID törlésre kerül.
+
+DELETE FROM szállításihatáridõk WHERE SzállításiID=462;
+
+6,Az összes ID-nak amelyeknek a költséghelye 406 a költsége 200%-kal nõtt:
+
+UPDATE árkondíciók SET Költség=Költség*2 WHERE költséghely=406;
+
+7,Az összes ID-nak amelyek elõzõleg 406-os költséghelyen voltak átkerülnek más költséghelyre.
+
+UPDATE árkondíciók SET költséghely= 700 WHERE költséghely=406;

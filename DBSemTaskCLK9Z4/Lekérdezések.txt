@@ -1,0 +1,49 @@
+Lekérdezések:
+
+1,Melyik cikkszámú termékbõl van több mint 1000db?
+
+SELECT cikkszám FROM nyersanyag WHERE darabszám > 1000;
+
+2,Irassuk ki azokat a cikkszámú termékeket amelyek anyagmegnevezése akkumulátor és 150-nél több van belõle.
+
+SELECT cikkszám FROM nyersanyag WHERE anyagmegnevezés = 'Akkumulátor' AND darabszám >150;
+
+3,Listázzuk ki azokat a cikkszámõ termékeket amelyek szükségesek a fûnyíró legyártásához.
+
+SELECT * FROM nyersanyag WHERE Késztermék_megnevezés = 'Fûnyíró';
+
+4,Listázzuk ki,hogy az adott anyagokból hányféle különbözõ cikkszámú termék van.
+
+SELECT Anyagmegnevezés,count(*) FROM nyersanyag GROUP BY Anyagmegnevezés;
+
+5,Irassuk ki a nyersanyag készletben az átlag,minimum,maximum,szumma,elemek számát az alapanyagköltségre vetítve.
+
+SELECT AVG(alapanyagköltség),MIN(alapanyagköltség),MAX(alapanyagköltség),SUM(alapanyagköltség),COUNT(alapanyagköltség) FROM nyersanyag_készlet;
+
+6,Irassuk ki azokat a külföldi beszállítók számát akik 'Irószert' szállítanak.
+
+SELECT COUNT(*) FROM külföldi_szállítók WHERE Tipus = 'Irószer';
+
+7,Irassuk ki az összes cikkszámhoz tartozó belföldi beszállítókat.
+
+SELECT belföldi_szállítók.név, nyersanyag.cikkszám FROM beszállítb 
+RIGHT OUTER JOIN belföldi_szállítók on belföldi_szállítók.BelföldiID = beszállítb.BelföldiID 
+RIGHT OUTER JOIN nyersanyag on nyersanyag.cikkszám = beszállítb.cikkszám;
+
+8,Irassuk ki azokat a tárhelyeket amelyeken a darabszám nagyobb mint 300 darab illetve az alapanyagköltség kevesebb mint 550.
+
+SELECT tárhely,darabszám,anyagmegnevezés,alapanyagköltség FROM nyersanyag_készlet WHERE darabszám > 300 AND alapanyagköltség<550;
+
+9,Listázzuk ki a nyersanyagok cikkszámát és a nyersanyagkészleten elérhetõ tárhelyeket.
+
+SELECT cikkszám FROM nyersanyag
+UNION
+SELECT tárhely FROM nyersanyag_készlet;
+
+10,Listázza ki azokat a belföldi szállítókat amelyek kezdõbetûje 'A' betûvel kezdõdik.
+
+SELECT * FROM belföldi_szállítók WHERE Név LIKE 'A%';
+
+
+
+
