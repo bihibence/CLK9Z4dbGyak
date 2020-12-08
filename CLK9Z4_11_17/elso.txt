@@ -1,0 +1,10 @@
+USE factory2;
+
+ALTER TABLE alkatresz ADD( ar INT CHECK(ar>0));
+
+SELECT nev FROM gyarto WHERE adoszam NOT IN (SELECT gyarto FROM termek);
+
+CREATE VIEW et AS SELECT MAX (t.nev) nev,t.tkod,COUNT(*)db
+FROM TERMEK T INNER JOIN egysegek e ON e.aru= t.tkod GROUP BY t.tkod;
+
+SELECT nev FROM et WHERE db=(SELECT MAX(db) FROM et);

@@ -1,0 +1,5 @@
+USE factory;
+
+ALTER TABLE termek DROP COLUMN gyartok;
+
+CREATE TABLE gyartja (termek INT REFERENCES termek,gyarto INT REFERENCES gyartok);

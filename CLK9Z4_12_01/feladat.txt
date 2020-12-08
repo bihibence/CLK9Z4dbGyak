@@ -1,0 +1,31 @@
+12. gyakorlat
+
+1, Adott egy R(A,;B) séma. Irja fel a táblákon lévõ triviális FD-ket.
+
+AB->A
+AB->B
+AB->AB
+A->A
+B->B
+
+2,Adott egy R(A;B;C) séma és adott egy FD rendszer:
+AB->B
+AC->B
+a->B
+B->B
+
+nem triviális: 
+AC->B
+A->B
+FD mag:
+A->B
+
+3,Igazolja,hogy ha A->B akkor AC->B is teljesül
+(1) A->B --> AC->BC
+(2) BC->B
+(3) AC->BC,BC->B-->AC->B
+
+4,Igazolja,hogy ha A->B,akkor AC->B is tlejesül
+A->B --> AC->BC
+c->D-->BC->BD
+AC->BC,BC->BD-->AC-BD

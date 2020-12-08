@@ -1,0 +1,8 @@
+CREATE DATABASE negyes;
+USE negyes;
+CREATE TABLE termek (
+	tkod INT PRIMARY KEY,
+	nev VARCHAR(50) NOT NULL,
+	ear INT Check (EAR>0),
+	kategory CHAR(20)
+);

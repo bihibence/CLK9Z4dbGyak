@@ -1,0 +1,5 @@
+GRANT SELECT ON termek TO peter;
+SELECT *FROM zoli.termek;
+CREATE VIEW tnevek AS SELECT nev FROM termekek;
+GRANT SELECT ON tnevek TO PUBLIC;
+SELECT *FROM zoli.tnevek;
