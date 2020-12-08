@@ -1,0 +1,52 @@
+9, Normalizálja az alábbi táblát BCNF-re
+
+Rendelések(
+	datum DATE,
+	vevo_kod VARCHAR(250),
+	vevo_nev VARCHAR(250),
+	termek_neve VARCHAR(50),
+	egysegAr INT,
+	osszAR INT
+)
+PK: (datum,vevo_tkod)
+
+hibás FD-k:
+	vevo_kod -> vevo_nev
+	termek_nev -> egysegAr
+
+Táblák:
+
+T1(datum,vevo_kod,termek_neve,osszAr)
+T2(vevo_kod,vevo_nev)
+T3(termek_neve,egysegAr)
+
+10,Végezze el BCNF normalizálását az alábbi táblán:
+SALES REPORT (
+	SALESPERSON-Number,
+	SALESPERSOn-Name,
+	SALES-Area,
+	Costumer-Number,
+	Costumer-Name,
+	WareHouse-Number,
+	WareHouse-Location,
+	SALES-Amount
+);
+
+T1(
+	SALESPERSON-Number,
+	SALESPERSON-Name,
+	SALES-Area);
+
+T2(
+	Costumer-Number,
+	Costumer-Name,
+	WareHouse-Area);
+
+T3(
+	WareHouse-Number,
+	WareHouse-Location);
+
+T4(
+	SALESPERSON-Number,
+	Costumer-Number,
+	SALES-Amount);
